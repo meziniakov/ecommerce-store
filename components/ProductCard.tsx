@@ -25,7 +25,7 @@ const ProductCard: React.FC<ProductProps> = ({ item }) => {
         <Image
           fill
           alt="Image"
-          src={item?.images[0]?.url}
+          src={item.images[0].url}
           className="aspect-square rounded-md object-cover"
         />
         <div className="opacity-0 group-hover:opacity-100 transition absolute bottom-5 px-6 w-full">
