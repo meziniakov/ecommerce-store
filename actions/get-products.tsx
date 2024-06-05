@@ -11,6 +11,7 @@ interface Query {
   productId?: string;
 }
 const getProducts = async (query: Query): Promise<Product[]> => {
+
   const url = queryString.stringifyUrl({
     url: URL,
     query: {
@@ -22,19 +23,7 @@ const getProducts = async (query: Query): Promise<Product[]> => {
     },
   });
   const res = await fetch(url);
-  const data = await res.json();
 
-  //TODO delete fake api
-  const products = data.map(item => ({
-    id: item.id,
-    name: item.title,
-    price: item.price,
-    category: {
-      id: item.category.id,
-      name: item.category.name,
-    },
-    images: item.images.map(image => ({"id": item.category.id , "url": image}))
-  }))
-  return products
+  return await res.json()
 };
 export default getProducts;
