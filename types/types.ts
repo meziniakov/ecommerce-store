@@ -7,8 +7,9 @@ export interface Billboard {
 export interface Category {
   id: string;
   name: string;
+  slug?: string;
   image?: string;
-  billboard?: Billboard;
+  billboardId?: Billboard;
 }
 
 export interface Product {
