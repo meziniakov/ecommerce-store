@@ -8,11 +8,11 @@ const Billboard: React.FC<BillboardProps> = ({ data }) => {
   return (
     <div className="p-4 overflow-hidden sm:p-6 lg:p-8 rounded-xl">
       <div
-        className="rounded-xl relative aspect-square sm:aspect-[2.4/1] overflow-hidden"
+        className="rounded-xl relative aspect-square sm:aspect-[4/1] overflow-hidden"
         style={{ backgroundImage: `url(${data?.imageUrl})` }}
       >
         <div className="flex flex-col items-center justify-center w-full h-full text-center gap-y-8">
-          <div className="max-w-xs text-3xl font-bold sm:text-5xl lg:text-6xl sm:max-w-xl">
+          <div className="max-w-xs text-3xl text-white font-bold sm:text-5xl lg:text-6xl sm:max-w-xl">
             {data.label}
           </div>
         </div>
