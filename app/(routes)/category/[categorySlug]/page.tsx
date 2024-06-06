@@ -1,10 +1,10 @@
 import getCategory from "@/actions/get-category"
+import getColors from "@/actions/get-colors"
 import getProducts from "@/actions/get-products"
 import Billboard from "@/components/Billboard"
 import Filter from "@/components/Filter"
 import MobileFilters from "@/components/MobileFilters"
 import ProductCard from "@/components/ProductCard"
-import ProductList from "@/components/ProductList"
 import Container from "@/components/ui/container"
 import NoResults from "@/components/ui/no-results"
 
@@ -15,6 +15,8 @@ const CategoryName = async ({params, searchParams}) => {
         categoryId: searchParams.categoryId
     })
 
+    const colors = await getColors()
+
     // const products = []
 
     return (
@@ -23,10 +25,12 @@ const CategoryName = async ({params, searchParams}) => {
                 <Billboard data={category?.billboardId} />
                 <div className="px-4 sm:px-6 lg:px-8 pb-24">
                     <div className="lg:grid lg:grid-cols-5 lg:gap-x-8">
-                        {/* Add mobile filter */}
-                        <MobileFilters />
+                        <div className="block lg:hidden">
+                        {/* <MobileFilters /> */}
+                        <Filter data={colors} name="Цвет" valueKey="colorId"/>
+                        </div>
                         <div className="hidden lg:block border-r">
-                            <Filter />
+                            <Filter data={colors} name="Цвет" valueKey="colorId"/>
                         </div>
                         <div className="mt-6 lg:col-span-4 lg:mt-0">
                             {products.length === 0 && <NoResults/>}

@@ -20,6 +20,10 @@ return (
             <h3 className="font-semibold text-black">Категория: </h3>
             <div>{product?.category?.name}</div>
         </div>
+        <div className="flex items-center gap-x-4">
+            <h3 className="font-semibold text-black">Цвет: </h3>
+            <div className="rounded-full border border-gray-600 h-6 w-6" style={{backgroundColor: product.colorId?.value}}></div>
+        </div>
         <div className="flex items-center gap-x-3 mt-10">
             <Button className="flex items-center gap-x-2">
                 Добавить в корзину

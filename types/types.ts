@@ -18,12 +18,19 @@ export interface Product {
   name: string;
   price: number | bigint;
   isFeatured: boolean;
-  size?: string;
-  color?: string;
+  sizeId?: string;
+  colorId?: Color;
   images: Image[];
 }
 
 export interface Image {
   id: string;
   url: string;
+}
+
+export interface Color {
+  id: string
+  name: string
+  storeId: string
+  value: string
 }

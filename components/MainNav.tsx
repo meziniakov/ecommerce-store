@@ -8,13 +8,14 @@ import {cn} from '@/lib/utils'
 interface MainNavProps {
     data: Category[]
 }
+
 const MainNav: React.FC<MainNavProps> = ({data}) => {
     const pathname = usePathname()
 
     const routes = data.map(route => ({
-        href: `/${route.slug}`,
+        href: `/category/${route.slug}`,
         label: route.name,
-        active: `/${route.name}` === pathname
+        active: `/category/${route.name}` === pathname
     }))
     return (
         <nav className="mx-6 flex items-center space-x-4 lg:space-x-6">
