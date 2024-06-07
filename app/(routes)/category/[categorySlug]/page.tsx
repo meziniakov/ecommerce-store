@@ -25,10 +25,9 @@ const CategoryName = async ({params, searchParams}) => {
                 <Billboard data={category?.billboardId} />
                 <div className="px-4 sm:px-6 lg:px-8 pb-24">
                     <div className="lg:grid lg:grid-cols-5 lg:gap-x-8">
-                        <div className="block lg:hidden">
-                        {/* <MobileFilters /> */}
-                        <Filter data={colors} name="Цвет" valueKey="colorId"/>
-                        </div>
+
+                        <MobileFilters colors={colors}/>
+
                         <div className="hidden lg:block border-r">
                             <Filter data={colors} name="Цвет" valueKey="colorId"/>
                         </div>
