@@ -28,17 +28,28 @@ const Summary = () => {
   }, [searchParams, removeAll]);
 
   const onCheckout = async () => {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLICK_API_URL}/checkout`,
-      {
-        method: "POST",
-        body: JSON.stringify({
-          productIds: items.map((item) => item.id),
-        }),
-      }
-    );
-
-    // window.location = response.url;
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            productIds: items.map((item) => item.id),
+          }),
+        }
+      );
+      const data = await response.json();
+      console.log("response: ", response);
+      console.log("data: ", data);
+      toast.success("Заказ принят");
+      window.location = data.url;
+    } catch (e) {
+      toast.error("Ошибка принятия заказа");
+      console.log("Error onCheckout: ", e);
+    }
   };
 
   return (
