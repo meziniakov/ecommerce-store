@@ -8,7 +8,11 @@ import ProductCard from "@/components/ProductCard";
 import Container from "@/components/ui/container";
 import NoResults from "@/components/ui/no-results";
 
-const CategoryName = async ({ params, searchParams }) => {
+const CategoryName = async ({
+  params,
+}: {
+  params: { categorySlug: string };
+}) => {
   const category = await getCategory(params.categorySlug);
 
   const products = await getProducts({
